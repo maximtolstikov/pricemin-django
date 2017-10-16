@@ -1,0 +1,83 @@
+{% extends "pricemin/pro/base_pro.html" %}
+{%load staticfiles%}
+
+{%block content%}
+ <div class="block block_blue text_x-large">
+  Выберите магазин
+ </div>
+  
+			{% for adress in adress_list %}
+			 
+			      <div class="before_prompt block block_white"
+			       href="{%url 'products_adress' flag region.id adress.id town.id%}"
+			       prompt="Открыв магазин можно увидеть список товаров на которые стоит обратить внимание." 
+			       prompt2="Ну, а если Вы не нашли требуемый товар, то с легкостью сможете его добавить 
+			       нажав на кнопку с плюсом, или запустить поиск (кнопка с лупой)."
+			       prompt3="Цвет поля продукта означает срок его последней актуализации. Зеленый - обновили совсем недавно. 
+			       Желтый - до трех дней. Красный - более трех дней">
+			        {{adress.prefix}} {{adress.street}}, {{adress.number}} 
+                                <div class="text_center text_x-large text_grey"><strong> {{adress.adress_name}}</strong></div>
+                                <table>
+                                 <tr>
+                                  <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{adress.user_id}}</td>  
+                                  <td align="center" valign="top" class="text_xsmall">{{adress.adress_date|date:"d.m.y"}}</td>             
+                                 </tr> 
+                                </table>
+			       </div>
+			 
+			{% empty %}
+			    <div class="block block_white">Для добавления продукта сначала добавте магазин</div>     			{%endfor%}  
+{%endblock%}
+
+{% block button_Question %}
+        <a href="/adress_list/mob/{{region.id}}/{{town.id}}">
+         <div id="bottom-button-question">
+           <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_on.png" %}">
+           <p></p>
+         </div>
+        </a>
+{% endblock %}
+
+{% block button_1 %}
+  <a href="{%url 'town' flag town.id%}">
+	<div id="bottom-button">
+      <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Home.png" %}" alt="">
+	</div>
+  </a>
+{% endblock %}
+
+{% block button_2 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_3 %}
+	    <div id="bottom-button">
+            <img  src="{%static "pricemin/image/mob/buttons_mob/Add.png" %}"
+                   class="before_prompt button"
+			       href="{%url 'adress_create' flag region.id town.id%}"
+			       prompt="Добовляя магазин принято сначала указывать основное название (например 'Магнит'), 
+			       а после расширяющее (например 'Гипермаркет')." 
+			       prompt2="Все поля обязательны!"
+			       prompt3="Регистр не важен."
+			       prompt4="Адрес можно узнать из чека."
+			       prompt5="">
+	      <p></p>
+	     </div>      
+{% endblock %}
+
+{% block button_4 %}
+ <div id="bottom-button">
+            <img src="{%static "pricemin/image/mob/buttons_mob/Find.png" %}"
+                   class="before_prompt button"
+			       href="{%url 'search_adress_form' flag region.id town.id%}"
+			       prompt="Поиск предназначен для удобного представления списка магазинов." 
+			       prompt2="Например список можно отсортировать по начальным буквам 'маг' в результате получим все 
+			       'Магниты' в городе."
+			       prompt3="Регистр не важен."
+			       prompt4=""
+			       prompt5="">
+            <p></p>
+       </div>
+{% endblock %}

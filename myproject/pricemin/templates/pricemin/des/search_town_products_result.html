@@ -1,0 +1,96 @@
+﻿{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+	   
+	   {% block article %}
+	   <div class="block block_blue">
+        Список товаров в соответствии с запросом:
+        <p class="text_yellow"><strong>"{{query}}"</strong></p>
+       </div>
+           {%for product in list%}
+             {% if product.product_date >= color.green %}			    <a href="{%url 'update_form_town' flag region.id product.id query town.id%}">
+             <div class="block block_green"> 
+              <table>
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_large">{{ product.product_name}}</td>  
+                <td align="center" valign="top"><strong> {{ product.product_price }}р.</strong></td>             
+               </tr> 
+               <tr>
+                <td align="center" colspan="2"><strong>{{product.adress}}</strong></td>               
+               </tr>   
+               <tr>
+                <td align="center" class="text_italic text_small" colspan="2">Вес: {{product.product_weight}}</td>               
+               </tr>   
+                                 <tr>
+                                  <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{product.user_id}}</td>  
+                                  <td align="center" valign="top" class="text_xsmall">{{product.product_date|date:"d.m.y"}}</td>             
+                                 </tr> 
+              </table>
+             </div>
+	            </a> 
+	          {% elif product.product_date >= color.yelow and product.product_date < color.green %}  
+	          <a href="{%url 'update_form_town' flag region.id product.id query town.id%}">
+             <div class="block block_yellow"> 
+              <table>
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_large">{{ product.product_name}}</td>  
+                <td align="center" valign="top"><strong> {{ product.product_price }}р.</strong></td>             
+               </tr> 
+               <tr>
+                <td align="center" colspan="2"><strong>{{product.adress}}</strong></td>               
+               </tr>   
+               <tr>
+                <td align="center" class="text_italic text_small" colspan="2">Вес: {{product.product_weight}}</td>               
+               </tr>   
+                                 <tr>
+                                  <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{product.user_id}}</td>  
+                                  <td align="center" valign="top" class="text_xsmall">{{product.product_date|date:"d.m.y"}}</td>             
+                                 </tr> 
+              </table>
+             </div>
+              </a>
+	          {% else %} 
+	          <a href="{%url 'update_form_town' flag region.id product.id query town.id%}">
+             <div class="block block_red"> 
+              <table>
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_large">{{ product.product_name}}</td>  
+                <td align="center" valign="top"><strong> {{ product.product_price }}р.</strong></td>             
+               </tr> 
+               <tr>
+                <td align="center" colspan="2"><strong>{{product.adress}}</strong></td>               
+               </tr>   
+               <tr>
+                <td align="center" class="text_italic text_small" colspan="2">Вес: {{product.product_weight}}</td>               
+               </tr>   
+                                 <tr>
+                                  <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{product.user_id}}</td>  
+                                  <td align="center" valign="top" class="text_xsmall">{{product.product_date|date:"d.m.y"}}</td>             
+                                 </tr> 
+              </table>
+             </div>
+              </a> 
+	          {% endif %}
+			{% empty %}
+             <div class="block block_white">Не найдено результатов</div>    
+			{%endfor%} 			
+	   {% endblock %}
+
+       {% block button_Home_des %}	
+       <a href="{%url 'town' flag town.id%}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Home_des.png" %}" alt="">
+       </a>   
+	   {% endblock %}
+       {% block button_Up_des %} 
+       <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt=""> 
+	   {% endblock %}
+
+	   {% block button_Add_des %}	
+	    <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}
+	   
+	   {% block button_Find_des %}
+	    <a href="{%url 'search_town_products_form' flag region.id town.id%}">
+	     <img class="button" src="{%static "pricemin/image/des/buttons/Find_des.png" %}" alt="">
+	    </a>
+	   {% endblock %}
+

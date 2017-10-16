@@ -1,0 +1,40 @@
+﻿{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+	   
+	   {% block aside%}	        
+    <div class="block block_white"> 
+     <span><strong>Подсказка:</strong><br>
+     <span>Незабудьте добавить выбранный округ/район в закладки Вашего браузера!</span>
+    </div> 		  
+	   {% endblock %}
+	      
+	   {% block article %} 
+ 
+      <div class="block block_blue">
+       {{region}}
+      </div>
+  
+			{%for town in town_list%}			    <a href="{%url 'town' flag town.id%}">
+			      <div class="block block_white">
+			       {{town.town_name}}
+			      </div></a>			{% empty %}
+               			{%endfor%}   
+	   {% endblock %}
+
+       {% block button_Home_des %}
+       <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">	   
+	   {% endblock %}
+	   
+	   {% block button_Up_des %}
+       <a href="{%url 'index_des' %}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Up_des.png" %}" alt="">
+       </a>	   
+	   {% endblock %}
+	   
+	   {% block button_Add_des %}
+	    <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}
+	   
+       {% block button_Find_des %}
+       <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}

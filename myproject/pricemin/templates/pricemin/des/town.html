@@ -1,0 +1,43 @@
+﻿{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+	   
+	   {% block article %}
+	    
+   	    <div class="block block_blue">
+         {{town.town_name}}
+        </div> 
+       <div id="height_60"></div>
+     
+       <a href="{%url 'adress_list' flag region.id town.id%}">
+        <div class="block block_orange" title="Здесь находиться информация о товарах в определенном магазине"><h2>Цены в магазине</h2></div></a>
+       <a href="{%url 'search_town_products_form' flag region.id town.id%}">
+       {%if region.id == 1%}
+        <div class="block block_aqua" title="Здесь можно найти информацию о конкретном товаре по округу"><h2>Цены по Округу</h2></div> 
+       {%elif region.id == 2%} 
+        <div class="block block_aqua" title="Здесь можно найти информацию о конкретном товаре по району"><h2>Цены по Району</h2></div>
+       {% else %}
+        <div class="block block_aqua" title="Здесь можно найти информацию о конкретном товаре по городу"><h2>Цены в Городе</h2></div>  
+       {% endif %} 
+       <a href="{%url 'events' flag town.id%}">
+        <div class="block block_lightGreen" title="Здесь находиться информация о событиях в городе"><h2>События</h2></div></a>
+        
+	   {% endblock %}
+	   
+	   
+       {% block button_Home_des %}
+       <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">	   
+	   {% endblock %}
+	   
+       {% block button_Up_des %}	
+        <a href="{%url 'town_list' flag region.id%}">
+         <img class="button" src="{%static "pricemin/image/des/buttons/Up_des.png" %}" alt="">
+        </a>   
+	   {% endblock %}
+
+	   {% block button_Add_des %}
+	   <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}
+	   
+	   {% block button_Find_des %}
+	   <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}

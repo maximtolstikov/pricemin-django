@@ -1,0 +1,48 @@
+{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+	   
+	   {% block article %}
+	    <div class="block block_blue">
+         {{town.town_name}}
+        </div> 
+	   <div class="block block_white text_center">
+        <p><h3>Добавте событие</h3></p>
+        <form action="{%url 'addEvent' flag town.id%}" method="POST">
+         {%csrf_token%}
+                        <p>{{form.user_id}}</p>
+                        <p>{{form.town}}</p>
+			<label for="prefix">Событие:</label>
+			<p>{{form.prefix}}</p>
+			<label for="town_name">Где:</label>	
+			<p>{{form.eventWhere}}</p>
+			<label for="eventStart">Начало:</label>
+			<p>{{ form.eventStart }}</p>
+			<label for="eventStop">Окончание:</label>
+			<p>{{ form.eventStop }}</p>
+			<label for="town_name">Описание:</label>
+			<p>{{form.eventComment}}</p>
+				   	    {{errors}}
+			<p><input id="id_submit" type="submit" value="Сохранить"/></p>
+        </form>
+       </div>
+	   {% endblock %}
+    
+       {% block button_Home_des %}
+       <a href="{%url 'town' flag town.id%}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Home_des.png" %}" alt="">
+       </a>	   
+	   {% endblock %}
+       {% block button_Up_des %}
+       <a href="{%url 'events' flag town.id%}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Up_des.png" %}" alt="">
+       </a>	   
+	   {% endblock %}
+
+	   {% block button_Add_des %}
+	   <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}
+	   
+	   {% block button_Find_des %}
+	   <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}
+   

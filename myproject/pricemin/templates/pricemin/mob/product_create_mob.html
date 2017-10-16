@@ -1,0 +1,63 @@
+﻿{% extends "pricemin/mob/base_mob.html" %}
+{%load staticfiles%}
+
+{%block content%}
+           <div class="block block_blue text_x-large">
+         Добавте продукт
+        </div>
+        <div class="block block_white text_center">
+        <form action="{%url 'addproduct' flag region.id adress.id town.id%}" method="POST">
+         {%csrf_token%}
+                        <p>{{form.user_id}}</p>
+                        <p class="width">{{form.adress}}</p>
+                        <label for="prefix">Название:</label>
+                        <p>{{form.product_name}}</p>
+                        <label for="town_name">Вес (гр./мл.):</label>
+                        <p>{{form.product_weight}}</p>
+                        <label for="town_name">Цена:</label>
+                        <p>{{form.product_price}}</p>
+                        {{errors}}
+                        {% if error_exist %}
+                        <ul class="errorlist"><li>{{error_exist}}</li></ul>
+                        {% endif %}
+                        <p><input id="id_submit" type="submit" value="Сохранить"/></p>
+           </form>
+       </div>
+{%endblock%}
+
+{% block button_Question %}
+ <a href="/product_create/pro/{{region.id}}/{{adress.id}}/{{town.id}}">
+  <div id="bottom-button-question">
+   <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_off.png" %}">
+  </div>
+ </a>
+{% endblock %}
+
+{% block button_1 %}
+ <a href="{%url 'town' flag town.id%}">
+  <div id="bottom-button">
+       <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Home.png" %}" alt="">
+  </div>
+ </a>
+{% endblock %}
+
+{% block button_2 %}
+ <a href="{%url 'products_adress' flag region.id adress.id town.id%}">
+  <div id="bottom-button">
+   <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}" alt="">
+  </div>
+ </a>
+{% endblock %}
+
+{% block button_3 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_4 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+

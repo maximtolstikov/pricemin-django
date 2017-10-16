@@ -1,0 +1,73 @@
+﻿{% extends "pricemin/pro/base_pro.html" %}
+{%load staticfiles%}
+
+   {%block content%}
+    <div class="block block_blue text_center">
+     <div class="text_grey">{{region.region_name}}</div>
+     <div class="text_white text_x-large">{{town.town_name}}</div>
+    </div>
+                
+        <div class="before_prompt block block_orange text_x-large text_center"
+           href="{%url 'adress_list' flag region.id town.id%}"
+		   prompt="Здесь Вы можете выбрать магазин, посмотреть или добавить свою информацию о продуктах в нём.">
+		   <strong>Цены в магазине</strong>
+        </div>    
+    
+        <div class="before_prompt block block_aqua text_x-large text_center"
+           href="{%url 'search_town_products_form' flag region.id town.id%}"
+		   prompt="Интересуют предложения продукта или товара по Округу, тогда Вам сюда." 
+		   prompt2="Поиск работает по заданному вхождению в названии товара."
+		   prompt3="Регистр не важен.">
+		   {%if region.id == 1%}
+            <strong>Цены по Округу</strong>
+           {%elif region.id == 2%}
+            <strong>Цены по Району</strong>
+           {% else %}
+            <strong>Цены в Городе</strong>
+           {% endif %}
+        </div> 
+               
+        <div class="before_prompt block block_lightGreen text_x-large text_center"
+           href="{%url 'events' flag town.id%}" 
+           prompt="Будте в курсе событий. Или делитесь информацией с другими." 
+           prompt2="Сдесь Вы сможете узнать о выгодных 
+           предложениях которые имеют отношение к Вашему городу.">
+		   <strong>События</strong>
+        </div>  
+   
+    
+    {%endblock%}
+      
+       {% block button_Question %}
+        <a href="/mob/{{town.id}}">
+         <div id="bottom-button-question">
+           <img  style="max-width:50%;" src="{%static "pricemin/image/mob/buttons_mob/Question_on.png" %}">
+         </div>
+        </a>
+	   {% endblock %}
+      
+       {% block button_1 %}
+         <div id="bottom-button">
+           <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+         </div>
+       {% endblock %}
+       
+       {% block button_2 %}
+        <a href="{%url 'town_list' flag region.id%}">
+         <div id="bottom-button">
+          <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}">
+         </div>
+        </a>
+       {% endblock %}
+       
+       {% block button_3 %}
+         <div id="bottom-button">
+            <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+         </div>
+       {% endblock %}
+       
+       {% block button_4 %}
+         <div id="bottom-button">
+           <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+         </div>
+       {% endblock %}

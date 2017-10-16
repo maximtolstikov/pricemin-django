@@ -1,0 +1,40 @@
+{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+  
+       {% block button_Home_des %}	
+        <a href="{%url 'town' flag town.id%}">
+    	   <img src="{%static "pricemin/image/des/buttons/Home_des.png" %}"  width="60" height="60" alt="">
+	    </a>   
+	   {% endblock %}
+       {% block button_Up_des %}	
+        <a href="{%url 'events' flag town.id%}">
+         <img src="{%static "pricemin/image/des/buttons/Up_des.png" %}"  width="60" height="60" alt="">
+        </a> 
+	   {% endblock %}
+       {% block button_Update_des %}
+	   {% endblock %}
+	   {% block button_Add_des %}
+	    <a href="{%url 'event_create' flag town.id%}">
+	     <img src="{%static "pricemin/image/des/buttons/Add_des.png" %}"  width="60" height="60" alt="">
+	    </a>
+	   {% endblock %}
+	   {% block button_Find_des %}
+	   {% endblock %}
+	   
+	   {%block top_aside%}
+	   <div id="top_aside"></div>
+	    {% endblock %}
+	   
+	   {%block asideEvents%}
+	   {% endblock %}
+	   
+	   {% block article %}
+	    
+                 <a href="{%url 'event' flag event.id town.id%}">
+			      <div id="div_border">
+			        <p><b>{{event.prefix}}</b></p>
+			        <p><i>{{event.eventWhere}}</i></p>
+			        <p>{{event.eventComment}}</p>
+			      </div></a>
+			        
+	   {% endblock %}

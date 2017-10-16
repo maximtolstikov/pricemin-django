@@ -1,0 +1,111 @@
+{% extends "pricemin/mob/base_mob.html" %}
+{%load staticfiles%}
+
+{%block content%}
+ <div class="block block_blue ">
+      <div class="text_large text_grey" >{{adress.prefix}} {{adress.street}}, {{adress.number}}</div>
+      <div class="text_x-large">{{adress.adress_name}}"</div>
+ </div>
+
+         {% for product in products_list %}			    
+			 {% if product.product_date >= color.green %}
+			 <a href="{%url 'update_form_adress' flag region.id adress.id product.id town.id%}">
+             <div class="block block_green"> 
+              <table>
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_large">{{ product.product_name}}</td>  
+                <td align="center" valign="top"><strong> {{ product.product_price }}р.</strong></td>             
+               </tr> 
+               <tr>
+                <td align="center" class="text_italic text_small" colspan="2">Вес: {{product.product_weight}}</td>               
+               </tr>   
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{product.user_id}}</td>  
+                <td align="center" valign="top" class="text_xsmall">{{product.product_date|date:"d.m.y"}}</td>             
+               </tr> 
+              </table>
+             </div>
+            </a>
+             {% elif product.product_date >= color.yelow and product.product_date < color.green %}
+             <a href="{%url 'update_form_adress' flag region.id adress.id product.id town.id%}">
+             <div class="block block_yellow"> 
+              <table>
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_large">{{ product.product_name}}</td>  
+                <td align="center" valign="top"><strong> {{ product.product_price }}р.</strong></td>             
+               </tr> 
+               <tr>
+                <td align="center" class="text_italic text_small" colspan="2">Вес: {{product.product_weight}}</td>               
+               </tr>   
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{product.user_id}}</td>  
+                <td align="center" valign="top" class="text_xsmall">{{product.product_date|date:"d.m.y"}}</td>             
+               </tr> 
+              </table>
+             </div> </a>
+             {% else %}
+             <a href="{%url 'update_form_adress' flag region.id adress.id product.id town.id%}">
+             <div class="block block_red"> 
+              <table>
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_large">{{ product.product_name}}</td>  
+                <td align="center" valign="top"><strong> {{ product.product_price }}р.</strong></td>             
+               </tr> 
+               <tr>
+                <td align="center" class="text_italic text_small" colspan="2">Вес: {{product.product_weight}}</td>               
+               </tr>   
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{product.user_id}}</td>  
+                <td align="center" valign="top" class="text_xsmall">{{product.product_date|date:"d.m.y"}}</td>             
+               </tr> 
+              </table>
+             </div></a>
+            {% endif %}
+
+                        {% empty %}
+                        <div class="block block_white">
+             <strong>По этому адресу пока нет добавленных продуктов</strong>
+            </div>                              {%endfor%}
+      
+
+{%endblock%}
+
+{% block button_Question %}
+ <a href="/products_adress/pro/{{region.id}}/{{adress.id}}/{{town.id}}">
+   <div id="bottom-button-question">
+     <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_off.png" %}">
+   </div>
+ </a>
+{% endblock %}
+
+{% block button_1 %}
+ <a href="{%url 'town' flag town.id%}">
+  <div id="bottom-button">
+      <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Home.png" %}" alt="">
+  </div>
+ </a>       
+{% endblock %}
+
+{% block button_2 %}
+ <a href="{%url 'adress_list' flag region.id town.id%}">
+   <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}" alt="">
+   </div>
+ </a>
+{% endblock %}
+
+{% block button_3 %}
+  <a href="{%url 'product_create' flag region.id adress.id town.id%}">
+    <div id="bottom-button">
+        <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Add.png" %}" alt="">
+    </div>
+  </a> 
+{% endblock %}
+
+{% block button_4 %}
+  <a href="{%url 'search_product' flag region.id adress.id town.id%}">
+    <div id="bottom-button">
+      <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Find.png" %}" alt="">
+    </div>
+  </a>
+{% endblock %}

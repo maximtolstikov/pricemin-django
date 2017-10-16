@@ -1,0 +1,59 @@
+﻿{% extends "pricemin/pro/base_pro.html" %}
+{%load staticfiles%}
+
+{%block content%}
+           <div class="block block_blue">
+       Список названия населенных пунктов в соответствии с запросом:
+        <p class="text_yellow"><strong>"{{query}}"</strong></p>
+      </div>
+  
+                        {% for town in town_list %}
+            <a href="{%url 'town'  flag town.id%}">
+             <div class="block block_white text_x-large text_center">
+                             {{town.town_name}}
+             </div>
+            </a>
+                                
+                        {% empty %}
+             <div class="block block_white">
+                     <strong>Не найдено результатов!</strong></div>                                      
+                        {%endfor%}    
+{%endblock%}
+
+{% block button_Question %}
+  <a href="/search_town/mob/{{region.id}}">
+    <div id="bottom-button-question">
+      <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_on.png" %}">
+    </div>
+  </a>
+{% endblock %}
+
+{% block button_1 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>  
+{% endblock %}
+
+{% block button_2 %}
+  <a href="{%url 'town_list' flag region.id%}">
+    <div id="bottom-button">
+      <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}" alt="">
+	</div>
+  </a>	    
+{% endblock %}
+
+{% block button_3 %}
+  <a href="{%url 'town_create' flag region.id%}">
+    <div id="bottom-button">
+       <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Add.png" %}" alt="">
+    </div>
+  </a> 
+{% endblock %}
+
+{% block button_4 %}
+  <a href="{%url 'search_town_form' flag region.id%}">
+     <div id="bottom-button">
+         <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Find.png" %}" alt="">
+     </div>
+  </a> 
+{% endblock %}

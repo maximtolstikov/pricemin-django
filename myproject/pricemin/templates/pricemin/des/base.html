@@ -1,0 +1,112 @@
+﻿{%load staticfiles%}
+{%load sidebar%}
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name='yandex-verification' content='63827216a10489c2' />
+  <meta name='wmail-verification' content='9422044196f87a7c29d2a44dcde9bd6d' />
+  <link rel="stylesheet" type="text/css" href="{%static "pricemin/css/des_css.css"%}">   
+  <link rel="shortcut icon" href="{% static 'pricemin/image/des/favicon.png' %}" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>  
+  <script type="text/javascript" src="{%static "pricemin/js/jquery.ui.datepicker-ru.js"%}"></script>
+{% block script %}
+  <script type="text/javascript" src="{%static "pricemin/js/script_des.js"%}"></script>
+{% endblock %}
+  <title>pricemin.ru</title>
+ </head>
+<body>
+ <div id='conteiner'>
+    <header>
+    </header>
+    
+    <div id="col_left">
+     <div class="block_grey">
+      <div class="text_white"><strong>Pricemin.ru</strong></div>
+      <p class="text_border"><a href="mailto:pricemin@mail.ru?subject=Обращение в техподдержку" style="color: white" title="Сдесь можно передать сообщение модератору">Сообщение модератеру:</a></p>         
+     </div>
+     <div class="block_grey">
+      <span><strong> Сообщество</strong></span>
+      <p>
+       <a href="https://ok.ru/group/53377581187260"><img src="{%static "pricemin/image/des/OK_120x32.png" %}" alt="OK"></a>
+       <a href="https://vk.com/club129945318"><img src="{%static "pricemin/image/des/VK_120x32.png" %}" alt="VK"></a>
+      </p>
+     </div>
+     <div class="block_grey">
+      <span><strong> Для смартфона</strong></span>
+      <p>
+       <a href="http://livemoon.ddns.net">
+        <!--https://itunes.apple.com/ru/app/pricemin/id1093192723?mt=8"-->
+        <img src="{%static "pricemin/image/des/Download_on_the_App_Store_Badge_RU_135x40.svg" %}" height="40"  alt="">
+       </a> 
+       <a href="https://play.google.com/store/apps/details?id=ru.pricemin.pricemin&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1">
+        <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/ru-play-badge-border.png" height="40" /></a>
+       <a href="https://www.microsoft.com/store/apps/9NBLGGH4Q9R1?ocid=badge">
+        <img src="https://assets.windowsphone.com/d58d3ebc-81e0-4dee-af61-fa8193fa65ca/Russian-get-it-from-MS_InvariantCulture_Default.png" 
+        srcset="https://assets.windowsphone.com/5bfa466f-bda6-4d03-90d9-0c298c1394b0/Russian_get_it_from_MS_InvariantCulture_Default.png 2x" alt="Получить от Microsoft" height="40"/>
+       </a> 
+      </p>
+     </div>
+     <div class="block_grey">
+      <span><strong>Обучающее видео</strong></span>
+      <p>
+       <a href="https://www.youtube.com/watch?v=wDRE6KNnw60">
+        <img src="{%static "pricemin/image/des/youtube.ico" %}" height="60"  alt="">
+       </a> 
+      </p>
+     </div>
+    </div>
+    
+    <div id="col_center">
+     <div id="block-button-fixed">
+      <div>
+      {% block button_Home_des %}
+	  {% endblock %}
+	  
+	  {% block button_Up_des %}
+	  {% endblock %}
+	  
+      {% block button_Add_des %}
+	  {% endblock %}
+	  
+      {% block button_Find_des %}
+	  {% endblock %}
+	  
+	  </div>     
+     </div>
+     {% block article %}
+     {% endblock %}
+     <div id="height_60"></div>
+    </div>
+    
+    <div id="col_right">
+     <div class="block_grey text_center"><span><strong>Информация</strong></span></div>
+    {% block aside%}
+     
+    <div class="block block_white"> 
+     {% show_news %}
+    </div> 
+     
+      {%block asideEvents%}
+       {%for event in events%}
+         <div class="block block_grey" title="Полезная информация"> 
+	       <div class="text_italic text_small"><strong>{{event.prefix}}</strong> {{event.eventWhere}}</div>
+	       <div class="text_small">{{event.eventDate|date:"d.m.y"}}</div>
+         </div> 
+	   {%endfor%}
+	  {%endblock%}
+	           
+    </div> 
+    {% endblock %}
+    </div>
+    
+    <footer>
+    </footer>
+ </div>
+</body>
+</html>
+
+

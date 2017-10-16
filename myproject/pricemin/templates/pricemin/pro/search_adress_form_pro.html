@@ -1,0 +1,56 @@
+﻿{% extends "pricemin/pro/base_pro.html" %}
+{%load staticfiles%}
+
+{%block content%}
+    <div class="block block_blue text_x-large">
+         {{town.town_name}}
+        </div>
+           <div class="block block_white text_center">
+        {% if error %}
+         <strong class="text_red"> Пустой запрос!</strong>
+        {% endif %}
+
+        <p><h3>Введите "Название магазина" или его часть для сортировки!</h3></p>
+        <form action="{%url 'search_adress' flag region.id town.id%}" method="GET">
+         <input id="id_search" type="text" name="q"/>
+                        <p><input id="id_submit" type="submit" value="Найти"/></p>
+             </form>
+       <div id="div_center"><img style="max-width:100%;" src="{%static "pricemin/image/shop.jpg" %}"></div>
+      </div>
+{%endblock%}
+
+{% block button_Question %}
+  <a href="/search_adress_form/mob/{{region.id}}/{{town.id}}">
+    <div id="bottom-button-question">
+      <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_on.png" %}">
+    </div>
+  </a>
+{% endblock %}
+
+{% block button_1 %}
+  <a href="{%url 'town' flag  town.id%}">
+	<div id="bottom-button">
+        <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Home.png" %}" alt="">
+    </div>
+  </a>
+{% endblock %}
+
+{% block button_2 %}
+  <a href="{%url 'adress_list' flag region.id town.id%}">
+    <div id="bottom-button">
+       <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}" alt="">
+    </div>
+  </a>
+{% endblock %}
+
+{% block button_3 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_4 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}﻿

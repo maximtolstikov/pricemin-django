@@ -1,0 +1,39 @@
+{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+  	   
+	   {% block article %}
+	   <div class="block block_blue">
+         {{town.town_name}}
+        </div> 
+	   <div class="block block_white text_center">	
+        {% if error %}
+         <strong class="text_red"> Пустой запрос!</strong>
+        {% endif %}
+        <p><h3>Введите "Название магазина" или его часть для сортировки!</h3></p>
+        <form action="{%url 'search_adress' flag region.id town.id%}" method="GET">
+         <input id="id_search" type="text" name="q"/>
+			<p><input id="id_submit" type="submit" value="Найти"/></p>
+	     </form>    
+       <div id="div_center"><img style="max-width:100%;" src="{%static "pricemin/image/shop.jpg" %}"></div>
+      </div>
+	   {% endblock %}
+
+       {% block button_Home_des %}
+       <a href="{%url 'town' flag town.id%}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Home_des.png" %}" alt="">
+       </a>	   
+	   {% endblock %}
+	   
+       {% block button_Up_des %}
+       <a href="{%url 'adress_list' flag region.id town.id%}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Up_des.png" %}" alt="">
+       </a>	   
+	   {% endblock %}
+	   
+	   {% block button_Add_des %}
+	   <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}
+	   
+	   {% block button_Find_des %}
+	   <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}

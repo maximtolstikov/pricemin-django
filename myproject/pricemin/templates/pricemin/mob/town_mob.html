@@ -1,0 +1,73 @@
+﻿{% extends "pricemin/mob/base_mob.html" %}
+{%load staticfiles%}
+
+   {%block content%}
+    <div class="block block_blue text_center">
+     <div class="text_grey">{{region.region_name}}</div>
+     <div class="text_white text_x-large">{{town.town_name}}</div>
+    </div>
+   
+       <a href="{%url 'adress_list' flag region.id town.id%}">  
+        <div class="block block_orange text_x-large text_center">
+         <strong>Цены в магазине</strong>
+        </div>   
+       </a>    
+    
+       <a href="{%url 'search_town_products_form' flag region.id town.id%}">
+       {%if region.id == 1%}
+        <div class="block block_aqua text_x-large text_center">
+         <strong>Цены по Округу</strong>
+        </div> 
+       {%elif region.id == 2%} 
+        <div class="block block_aqua text_x-large text_center">
+         <strong>Цены по Району</strong>
+        </div>
+       {% else %}
+        <div class="block block_aqua text_x-large text_center">
+         <strong>Цены в Городе</strong>
+        </div> 
+       {% endif %}   
+       </a>
+       
+       <a href="{%url 'events' flag town.id%}">  
+        <div class="block block_lightGreen text_x-large text_center">
+         <strong>События</strong>
+        </div>   
+       </a>  
+    
+    {%endblock%}
+      
+       {% block button_Question %}
+        <a href="/pro/{{town.id}}">
+         <div id="bottom-button-question">
+           <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_off.png" %}">
+         </div>
+        </a>
+	   {% endblock %}
+
+       {% block button_1 %}
+         <div id="bottom-button">
+           <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+         </div>
+       {% endblock %}
+       
+       {% block button_2 %}
+        <a href="{%url 'town_list' flag region.id%}">
+         <div id="bottom-button">
+          <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}">
+         </div>
+        </a>
+       {% endblock %}
+       
+       {% block button_3 %}
+         <div id="bottom-button">
+            <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+         </div>
+       {% endblock %}
+       
+       {% block button_4 %}
+         <div id="bottom-button">
+           <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+         </div>
+       {% endblock %}
+    

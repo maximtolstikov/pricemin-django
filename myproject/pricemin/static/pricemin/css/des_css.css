@@ -1,0 +1,172 @@
+header, nav, article, aside, footer {display:block;
+}
+body{
+background-image:url(../image/des/fon/sammer.jpg);    
+background-position: center center;      
+background-repeat: no-repeat;      
+background-attachment: fixed;      
+background-size: cover;      
+background-color: #464646;
+font-family: sans-serif;
+}
+A {
+color: black; /* Цвет ссылок */
+}
+A:visited {
+color: black; /* Цвет посещенных ссылок */
+}
+A:active {
+color: grey; /* Цвет активных ссылок */
+}
+#conteiner {
+width: 800px;
+margin: auto; /* Выравниваем по центру */
+}
+header  {
+}
+#col_left {
+width:140px; 
+float:left; 
+padding: 5px;
+text-align: center;
+}
+#col_center {
+width:370px; 
+float:left; 
+padding: 5px;
+}
+#col_right {
+width:260px; 
+float:left; 
+padding: 5px;
+}
+footer {
+}
+a { 
+text-decoration: none; /* Отменяем подчеркивание у ссылки */
+} 
+.text_center{
+text-align: center;
+}
+.text_right{
+text-align: right;
+}
+.text_white{
+color: white;
+}
+.text_red{
+color: red;
+}
+.text_yellow{
+color: yellow;
+}
+.text_border{
+border: 1px solid grey;
+border-radius: 8px;
+padding: 2px;
+}
+.text_italic{
+font-style: italic;
+}
+.text_small{
+font-size: small;
+}
+.text_xsmall{
+font-size: x-small;
+}
+.text_large{
+font-size:large;
+}
+.block{
+border-left: 1px solid grey;
+border-top: 1px solid grey;
+border-right: 1px solid grey;
+border-bottom: 3px solid grey;
+border-radius: 8px;
+margin-bottom: 3px;
+padding: 7px;
+}
+.block_grey{
+background: rgba(166,166,166, 0.6); /* Цвет фона */
+border-bottom: 1px solid grey;
+border-radius: 8px;
+margin-bottom: 3px;
+padding: 3px;
+}
+.block_white{
+background: white; /* Цвет фона */
+}
+.block_blue{
+background: blue; /* Цвет фона */
+color: white;
+text-align: center;
+}
+.block_yellow{
+background: rgba(255,255,166, 1); /* Цвет фона */
+}
+.block_green{
+background: rgba(153,255,153, 1); /* Цвет фона */
+}
+.block_red{
+background: rgba(255,153,153, 1); /* Цвет фона */
+}
+.block_orange{
+background: orange; /* Цвет фона */
+text-align: center;
+}
+.block_aqua{
+background: aqua; /* Цвет фона */
+text-align: center;
+}
+.block_lightGreen {
+background: lightgreen;; /* Цвет фона */
+text-align: center;
+}
+#block-button-fixed {
+position: fixed;
+margin-left: 15px;
+width: 340px;
+bottom: 20px;
+height: 70px;
+}
+.button{      /* размер изображения кнопок внизу */
+max-width:23%;
+}
+#height_60 { /* Блок требуется для прокрутки выше block-button-fixed */
+height: 80px;
+}
+#id_adress{   /*Поле выбора в формах ограничено что бы контент не расширял поле больше блока*/
+width: 340px;
+}
+#id_submit{
+font-size: 20px;
+}
+/*Подсказки*/
+#prompt{
+z-index:3; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+position:fixed; /* всегдa перекрывaет весь сaйт */
+background-color:#000; /* чернaя */
+opacity:0.9; /* нo немнoгo прoзрaчнa */
+width:100%;
+height:100%; /* рaзмерoм вo весь экрaн */
+top:0; /* сверху и слевa 0, oбязaтельные свoйствa! */
+left:0;
+cursor:pointer;
+display:none; /* в oбычнoм сoстoянии её нет) */
+color:white;
+padding-top: 30px;
+padding-left: 20px;
+overflow: auto;
+}
+ul.errorlist {
+margin: 0;
+padding: 0;
+}
+.errorlist li {
+background-color: red;
+color: white;
+display: block;
+font-size: 20px;
+margin: 0 0 3px;
+padding: 4px 5px;
+}

@@ -1,0 +1,53 @@
+{%load staticfiles%}
+{%load sidebar%}
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <meta name='yandex-verification' content='63827216a10489c2' />
+   <meta name="msvalidate.01" content="34CF1A369CE4D1B967F447D22DA9943F" />
+   <meta name='wmail-verification' content='9422044196f87a7c29d2a44dcde9bd6d' />
+   <link rel="stylesheet" type="text/css" href="{%static "pricemin/css/startPage.css"%}">   
+   <title>pricemin.ru</title>
+   <!--[if IE]>
+   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   <script type="text/javascript" src="{%static "pricemin/js/startPage.js"%}"></script>
+</head>
+<body>
+ <div id="start_text">Как работает программа?
+ </div>
+ <div class="colon colon_left">
+  <div id="block_text_left">left</div>
+ </div>
+ <div class="list">
+  <div class="div_list div_list_border">
+   <div class="block b1"></div>  
+   <div class="block b2"></div>
+   <div class="block b3"></div>  
+   <div class="block b4"></div>
+   <div class="block b5"></div>  
+   <div class="block b6"></div>
+   <div class="block b7"></div>  
+   <div class="block b8"></div>
+   <div class="block b9 stop"></div>  
+  </div>
+  <div class="buttons_panel buttons_panel_border">
+   <img class="handle_button img_home" src="{%static "pricemin/image/des/buttons/Home_des.png"%}" alt=""> 
+   <img class="handle_button img_up" src="{%static "pricemin/image/des/buttons/Up_des.png"%}" alt=""> 
+   <img class="handle_button img_add" src="{%static "pricemin/image/des/buttons/Add_des.png"%}" alt=""> 
+   <img class="handle_button img_find" src="{%static "pricemin/image/des/buttons/Find_des.png"%}" alt="">  
+  </div> 
+ </div>
+ <div class="colon colon_right">
+  <div id="block_text_right">right</div> 
+ </div>
+  <div class="button button_right ">Узнать</div>
+ <a href="{%url 'index_des'%}">
+  <div class="button button_left">Пропустить</div>
+ </a>
+ 
+</body>
+</html>

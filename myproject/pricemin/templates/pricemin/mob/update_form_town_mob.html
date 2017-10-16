@@ -1,0 +1,46 @@
+﻿{% extends "pricemin/mob/base_mob.html" %}
+{%load staticfiles%}
+
+{%block content%}
+  <div align="center">
+        <p><h3>Добавте продукт</h3></p>
+        <form action="{%url 'product_update_town' flag region.id adress.id product.id query town.id%}" method="POST">
+         {%csrf_token%}
+			<p>{{form.user_id}}</p>
+			<p>{{form.adress}}</p>
+			<label for="prefix">Название:</label>
+			<p>{{form.product_name}}</p>
+			<label for="town_name">Вес (гр./мл.):</label>
+			<p>{{form.product_weight}}</p>
+			<label for="town_name">Цена:</label>
+			<p>{{form.product_price}}</p>
+			<p><input id="id_submit" type="submit" size="50" value="Сохранить"></p>          		
+        </form>        
+       </div>
+{%endblock%}
+
+{% block button_1 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_2 %}
+  <a href="{%url 'product_update_town_back' flag region.id adress.id product.id query town.id%}">
+    <div id="bottom-button">
+      <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}">
+    </div>
+  </a> 
+{% endblock %}
+
+{% block button_3 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_4 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}

@@ -1,0 +1,73 @@
+﻿{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+
+{%block script%}
+  <script type="text/javascript" src="{%static "pricemin/js/script_index_des.js"%}"></script>
+{%endblock%}
+
+   {%block top_aside%}
+   <div id="top_aside"></div>
+   {% endblock%}
+   
+      {% block button_Question_des %}
+       
+  	   {% endblock %}
+      {% block button_Home_des %}
+	   
+	   {% endblock %}
+      {% block button_Add_des %}
+	  
+	   {% endblock %}
+      {% block button_Up_des %}
+	   
+	   {% endblock %}
+      {% block button_Update_des %}
+	   
+	   {% endblock %}
+      {% block button_Find_des %}
+	  
+	   {% endblock %}
+	   
+	   {% block aside%}
+	        
+    <div id="div_news"> 
+    </div> 	
+	  
+	   {% endblock %}
+	   
+	   {% block article %}             
+
+<div id="prompt"><div id="prompt_text"></div><button class="button">Принять</button></div>
+
+{% if user.id == None %}
+
+<div class="block block_white text_center" title="Нажмите для перехода в требуемый город">
+    <h1 >Пожалуйста авторизуйтесь в системе</h1>
+    <div class="rules" href="{% url 'social:begin' "google-oauth2" %}?next={{ request.path }}">
+     <img  style="max-width:30%;" src="{%static "pricemin/image/auth/Google.png" %}" >
+    </div>
+    <div class="rules" href="{% url 'social:begin' "odnoklassniki-oauth2" %}?next={{ request.path }}">
+     <img  style="max-width:30%;" src="{%static "pricemin/image/auth/odnoklassniki.png" %}"><br>
+    </div>
+    <div class="rules" href="{% url 'social:begin' "vk-oauth2" %}?next={{ request.path }}">
+     <img  style="max-width:30%;" src="{%static "pricemin/image/auth/VK.png" %}">
+    </div>
+</div>
+{% else %}
+                            <a href="{%url 'town_list' flag 1%}">
+			      <div class="block block_white" title="Нажмите для перехода в требуемый город">
+			       Москва</div></a>
+			        
+			    <a href="{%url 'town_list' flag 2%}">
+			      <div class="block block_white" title="Нажмите для перехода в требуемый город">
+			        Санкт-Петербург</div></a> 
+			{%for region in region_list%}
+			  {%if region.id == 1 or region.id == 2%}			
+			  {% else %}
+			    <a href="{%url 'town_list' flag region.id%}">
+			      <div class="block block_white"  title="Нажмите для перехода в требуемый регион">
+			        {{region.region_name}}</div></a>
+			  {% endif %}
+			{%endfor%} 
+{% endif %}
+		{% endblock %}

@@ -1,0 +1,43 @@
+# encodig: utf-8 
+from django.conf.urls import url
+from . import views
+
+urlpatterns = [
+	url(r'^$', views.index, name='index'), 
+	url(r'^des/$', views.index_des, name='index_des'), 
+	url(r'^mob/$', views.index_mob, name='index_mob'), 
+	url(r'^(?P<flag>[a-z]+)/about/$', views.about_des, name='about_des'),
+	url(r'^(?P<flag>[a-z]+)/about/(?P<town_id>[0-9]+)$', views.about_mob, name='about_mob'),
+    url(r'^(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/town_list/$', views.town_list, name='town_list'),
+    url(r'^(?P<flag>[a-z]+)/(?P<town_id>[0-9]+)$', views.town, name='town'),
+	url(r'^adress_list/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.adress_list, name='adress_list'),
+	url(r'^products_adress/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<adress_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.products_adress, name='products_adress'),
+	url(r'^town_create/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/$', views.town_create, name='town_create'),
+	url(r'^adress_create/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.adress_create, name='adress_create'),
+	url(r'^product_create/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<adress_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.product_create, name='product_create'),
+	url(r'^event_create/(?P<flag>[a-z]+)/(?P<town_id>[0-9]+)$', views.event_create, name='event_create'),
+	url(r'^addtown/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/$', views.addtown, name='addtown'),
+	url(r'^addadress/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.addadress, name='addadress'),
+	url(r'^addproduct/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<adress_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.addproduct, name='addproduct'),
+	url(r'^addEvent/(?P<flag>[a-z]+)/(?P<town_id>[0-9]+)$', views.addEvent, name='addEvent'),
+	url(r'^update_form_adress/(?P<flag>[a-z]+)/(?P<region_id>[1-9]+)/(?P<adress_id>[0-9]+)/(?P<product_id>[0-9]+)/(?P<town_id>[0-9]+)/$', views.update_form_adress, name='update_form_adress'),        
+	url(r'^update_form_town/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<product_id>[0-9]+)/(?P<query>[^/]+)/(?P<town_id>[0-9]+)/$', views.update_form_town, name='update_form_town'),        
+	url(r'^update_form_event/(?P<flag>[a-z]+)/(?P<event_id>[0-9]+)/(?P<town_id>[0-9]+)/$', views.update_form_event, name='update_form_event'),        
+	url(r'^update_event/(?P<flag>[a-z]+)/(?P<event_id>[0-9]+)/(?P<town_id>[0-9]+)/$', views.update_event, name='update_event'),        
+    url(r'^product_update_adress/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<adress_id>[0-9]+)/(?P<product_id>[0-9]+)/(?P<town_id>[0-9]+)/$', views.product_update_adress, name='product_update_adress'),         
+    url(r'^product_update_town/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<adress_id>[0-9]+)/(?P<product_id>[0-9]+)/(?P<query>[^/]+)/(?P<town_id>[0-9]+)/$', views.product_update_town, name='product_update_town'),         
+    url(r'^search_adress_form/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.search_adress_form, name='search_adress_form'),
+    url(r'^search_adress/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.search_adress, name='search_adress'),
+    url(r'^search_product_form/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<adress_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.search_product_form, name='search_product_form'),
+    url(r'^search_product/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<adress_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.search_product, name='search_product'),
+    url(r'^search_town_form/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/$', views.search_town_form, name='search_town_form'),
+    url(r'^search_town/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/$', views.search_town, name='search_town'),       
+    url(r'^search_town_products_form/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.search_town_products_form, name='search_town_products_form'),
+    url(r'^search_town_products/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.search_town_products, name='search_town_products'),       
+	url(r'^product_update_town_back/(?P<flag>[a-z]+)/(?P<region_id>[0-9]+)/(?P<adress_id>[0-9]+)/(?P<product_id>[0-9]+)/(?P<query>[^/]+)/(?P<town_id>[0-9]+)$', views.product_update_town_back, name='product_update_town_back'),
+    url(r'^events/(?P<flag>[a-z]+)/(?P<town_id>[0-9]+)$', views.events, name='events'),
+	# переход на  event убрали чтобы можно было обновлять прямо из списка как продукты 
+    url(r'^event/(?P<flag>[a-z]+)/(?P<event_id>[0-9]+)/(?P<town_id>[0-9]+)$', views.event, name='event'),
+    url(r'^deactivate/(?P<flag>[a-z]+)$', views.deactivate, name='deactivate'),
+    url(r'^accounts/login/', views.incorrect_login, name='incorrect_login'),
+]       

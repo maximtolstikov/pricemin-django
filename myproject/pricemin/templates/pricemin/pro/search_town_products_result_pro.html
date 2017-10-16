@@ -1,0 +1,106 @@
+﻿{% extends "pricemin/pro/base_pro.html" %}
+{%load staticfiles%}
+
+{%block content%}
+ 
+       <div class="block block_blue">
+        Список товаров в соответствии с запросом:
+        <p class="text_yellow"><strong>"{{query}}"</strong></p>
+       </div>
+  
+
+           {%for product in list%}
+             {% if product.product_date >= color.green %}
+            
+             <div class="block block_green before_prompt"
+                   href="{%url 'update_form_town' flag region.id product.id query town.id%}"
+			       prompt="Если данные по товару не соответствуют действительным, то Вы всегда 
+			       сможете обновить информацию." 
+			       prompt2=""
+			       prompt3=""
+			       prompt4=""
+			       prompt5=""> 
+             
+             {% elif product.product_date >= color.yelow and product.product_date < color.green %}
+                 
+             <div class="block block_yellow before_prompt"
+                   href="{%url 'update_form_town' flag region.id product.id query town.id%}"
+			       prompt="Если данные по товару не соответствуют действительным, то Вы всегда 
+			       сможете обновить информацию." 
+			       prompt2=""
+			       prompt3=""
+			       prompt4=""
+			       prompt5="">
+             
+             {% else %}
+                  
+             <div class="block block_red before_prompt"
+                   href="{%url 'update_form_town' flag region.id product.id query town.id%}"
+			       prompt="Если данные по товару не соответствуют действительным, то Вы всегда 
+			       сможете обновить информацию." 
+			       prompt2=""
+			       prompt3=""
+			       prompt4=""
+			       prompt5="">
+			       
+			 {% endif %}
+              <table>
+               <tr>
+                <td align="left" valign="top" width="100%" class="text_large">{{ product.product_name}}</td>  
+                <td align="center" valign="top"><strong> {{ product.product_price }}р.</strong></td>             
+               </tr> 
+               <tr>
+                <td align="center" colspan="2"><strong>{{product.adress}}</strong></td>               
+               </tr>   
+               <tr>
+                <td align="center" class="text_italic text_small" colspan="2">Вес: {{product.product_weight}}</td>               
+               </tr>   
+                                 <tr>
+                                  <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{product.user_id}}</td>  
+                                  <td align="center" valign="top" class="text_xsmall">{{product.product_date|date:"d.m.y"}}</td>             
+                                 </tr> 
+              </table>
+             </div>
+                
+
+                    
+                        {% empty %}
+             <div class="block block_white">Не найдено результатов</div>           
+                        {%endfor%}    
+{%endblock%}
+
+{% block button_Question %}
+  <a href="/search_town_products/mob/{{region.id}}/{{town.id}}">
+     <div id="bottom-button-question">
+       <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_on.png" %}">
+     </div>
+  </a>
+{% endblock %}
+
+{% block button_1 %}
+  <a href="{%url 'town' flag town.id%}">
+    <div id="bottom-button">
+        <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Home.png" %}" alt="">
+    </div>
+  </a>  
+{% endblock %}
+
+{% block button_2 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_3 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_4 %}
+  <a href="{%url 'search_town_products_form' flag region.id town.id%}">
+    <div id="bottom-button">
+        <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Find.png" %}" alt="">
+    </div>
+  </a>
+{% endblock %}

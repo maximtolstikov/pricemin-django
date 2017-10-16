@@ -1,0 +1,32 @@
+  body{
+    font-size: 100%; 
+    font-family: Arial, Helvetica, sans-serif; 
+    margin: 0; /* Убираем отступы */
+    background: url("../image/des/fon3.png"); 
+    background-color: grey;
+    background-repeat: no-repeat;
+  } 
+   a {
+    outline: none; /* Убираем границу вокруг ссылок  */
+   }
+  #container {    
+    width: 800px; /* Ширина макета */
+    margin: 0 auto; /* Выравниваем по центру */
+    text-align:center;  
+   }
+  header {
+    margin: 0 auto; /* Выравниваем по центру */
+    width: 800px; /* Ширина блока */	
+    display: block;    
+    color: white; /* Цвет текста */
+    font-size: 30pt; /* Размер текста */
+    text-align: center;//*Выравнивание текста*/
+    color: #fff; /* Цвет текста */
+    padding: 1px; /* Отступы вокруг текста */    
+   }
+ 
+#div_index_text{
+color: #ccccff;
+font-size: 120%; }
+
+ 

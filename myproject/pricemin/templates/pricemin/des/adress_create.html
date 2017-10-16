@@ -1,0 +1,51 @@
+{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+	   
+	   {% block article %}
+	   <div class="block block_blue">
+         {{town.town_name}}
+        </div> 
+	   <div class="block block_white text_center">	          
+        <h3>Добавте магазин</h3>
+        <form action="{%url 'addadress' flag region.id town.id%}" method="POST">
+         {%csrf_token%}
+	   	        <p>{{form.user_id}}</p>
+			<p>{{form.town}}</p>
+			<label for="town_name">Название магазина:</label>
+			<p>{{form.adress_name}}</p>
+			<label for="prefix">Префикс:</label>
+			<p>{{form.prefix}}</p>
+			<label for="town_name">Название улицы:</label>
+			<p>{{form.street}}</p>
+			<label for="town_name">Номер дома:</label>
+			<p>{{form.number}}</p>
+               {{errors}}
+                                                            {% if error_exist %}
+            <ul class="errorlist"><li>{{error_exist}}</li></ul>
+            {% endif %}
+			<p><input id="id_submit" type="submit" value="Сохранить"/></p>      
+        </form>        
+       </div>
+	   {% endblock %}
+	   
+  	   {% block button_Home_des %}
+       <a href="{%url 'town' flag town.id%}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Home_des.png" %}" alt="">
+       </a>	   
+	   {% endblock %}
+	   
+       {% block button_Up_des %}
+       <a href="{%url 'adress_list' flag region.id town.id%}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Up_des.png" %}" alt="">
+       </a>	   
+	   {% endblock %}
+
+	   {% block button_Add_des %}
+	   <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}
+	   
+	   {% block button_Find_des %}
+	   <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">
+	   {% endblock %}
+
+

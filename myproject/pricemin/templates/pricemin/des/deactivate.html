@@ -1,0 +1,37 @@
+{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+  	      
+	   {% block aside%}
+	   <div class="block block_white"> 
+
+       </div> 
+	   {% endblock %}
+	   
+	   {% block article %}             
+
+			      <div class="block block_white text_center">
+                   <div id="height_60"></div>
+                   <strong>Ваш аккаунт заблокирован в соответствии с правилами использования программы!<br>
+                   Для возобновления входа пожалуйста используйте другой социальный профиль.
+                   </strong>
+                   <div id="height_60"></div>
+                   <a href="{%url 'index_des' %}" >                    
+                    <div class="block block_gray text_center text_red">
+                     Сменить пользователя
+                    </div>
+                   </a>			      
+			      </div>
+ 
+	   {% endblock %}
+	   
+       {% block button_Home_des %}	   
+	   {% endblock %}
+	   
+       {% block button_Add_des %}	  
+	   {% endblock %}
+	   
+       {% block button_Up_des %}	   
+	   {% endblock %}
+	   
+       {% block button_Find_des %}	  
+	   {% endblock %}

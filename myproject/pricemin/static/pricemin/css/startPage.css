@@ -1,0 +1,122 @@
+body{
+    background-image: url(../image/des/fon/startPageFon.png);
+    font-family: "Arial", sans-serif;
+}
+#start_text{
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+    font-size: 4em;
+    height: 10%;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+.colon{
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+    color: white;
+    text-align: center;
+    display: none;
+    height: 96%;
+    font-size: xx-large;
+}
+.colon_left{
+    position: absolute; 
+    width: 30%;
+    left: 10px;    
+}
+#block_text_left{
+    padding-top: 10%;}
+.colon_right{
+    width: 30%;
+    position: absolute; 
+    right: 10px;
+}
+#block_text_right{
+    padding-top: 10%;}
+.list{
+    display: none;
+    width: 380px;
+    height: 90%;
+    position: absolute; 
+    left: 50%;
+    margin: 10px 0 0 -200px;
+    }
+.div_list{
+    height:75%;
+    padding:15px; 
+    }
+.div_list_border{
+    border-radius: 10px; 
+    border: 5px dashed white;    
+    }
+.block{
+    border-left: 1px solid grey;
+    border-top: 1px solid grey;
+    border-right: 1px solid grey;
+    border-bottom: 3px solid grey;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    padding-top: 1%;
+    height: 9%;
+    text-align: center;
+    font-size: x-large;
+    line-height: 50px;
+}
+.block_light{
+    background-color: #9db8d2;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 3px solid white;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    padding: 7px;
+    height: 50px;
+    }
+.buttons_panel{
+    display: none;
+    width: 370px;
+    height: 100px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin: -210px 0 0 -192px;
+    padding: 7px 0 0 8px;
+}
+.buttons_panel_border{
+    border-radius: 5px;
+    border: 3px dotted white;
+    padding-right: 1px;
+    }
+.button{
+    background-color: #4284C6;
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+    font-size: xx-large;
+    padding: 4%;
+    text-align: center;
+    color: white;
+    display: inline-block;
+    position: absolute;
+    bottom: 15%;
+    border-radius: 20px;
+    position: absolute;
+    transition: all 1s ease-in-out;
+    -webkit-transition: all 1s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 1s ease-in-out; /** Firefox **/
+    -o-transition: all 1s ease-in-out; /** Opera **/
+}
+.handle_button{      /* размер изображения кнопок внизу */
+    max-width:23%;
+}
+.button_right{
+right: 10%;
+}
+.button_left{
+left: 10%;
+}

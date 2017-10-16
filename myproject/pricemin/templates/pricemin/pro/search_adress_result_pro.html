@@ -1,0 +1,61 @@
+﻿{% extends "pricemin/pro/base_pro.html" %}
+{%load staticfiles%}
+
+{%block content%}
+           <div class="block block_blue text_large">
+        Список магазинов в соответствии с запросом:
+        <p class="text_yellow"><strong>"{{query}}"</strong></p>
+       </div>
+
+
+                        {% for adress in adress_list %}
+                                                    <a href="{%url 'products_adress' flag region.id adress.id town.id%}">
+                              <div class="block block_white" title="Откройте для просмотра интересных предложений в магазине">
+                                {{adress.prefix}} {{adress.street}}, {{adress.number}} 
+                                <div class="text_center"><strong> {{adress.adress_name}}</strong></div>
+                              </div>
+                            </a>
+
+                        {% empty %}
+                         <div class="block block_white text_center"><strong>Не найдено результатов</strong></div>
+                        {%endfor%}      
+{%endblock%}
+
+{% block button_Question %}
+  <a href="/search_adress/mob/{{region.id}}/{{town.id}}">
+    <div id="bottom-button-question">
+      <img class="button_prompt" src="{%static "pricemin/image/mob/buttons_mob/Question_on.png" %}">
+    </div>
+  </a>
+{% endblock %}
+
+{% block button_1 %}
+  <a href="{%url 'town' flag  town.id%}">
+	<div id="bottom-button">
+        <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Home.png" %}" alt="">
+    </div></a>
+{% endblock %}
+
+{% block button_2 %}
+  <a href="{%url 'adress_list' flag region.id town.id%}">
+    <div id="bottom-button">
+      <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}" alt="">
+    </div>
+  </a>
+{% endblock %}
+
+{% block button_3 %}
+  <a href="{%url 'adress_create' flag region.id town.id%}">
+   <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Add.png" %}" alt="">
+   </div>
+  </a>
+{% endblock %}
+
+{% block button_4 %}
+  <a href="{%url 'search_adress_form' flag region.id town.id%}">
+      <div id="bottom-button">
+        <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Find.png" %}" alt="">
+      </div>
+  </a>
+{% endblock %}﻿

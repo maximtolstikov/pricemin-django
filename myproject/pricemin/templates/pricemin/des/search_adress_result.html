@@ -1,0 +1,48 @@
+{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+	   
+	   {% block article %}
+	   <div class="block block_blue">
+        Список магазинов в соответствии с запросом:
+        <p class="text_yellow"><strong>"{{query}}"</strong></p>
+       </div>
+
+  
+			{% for adress in adress_list %}
+			  			    <a href="{%url 'products_adress' flag region.id adress.id town.id%}">
+			      <div class="block block_white" title="Откройте для просмотра интересных предложений в магазине">
+			        {{adress.prefix}} {{adress.street}}, {{adress.number}} 
+			        <div class="text_center"><strong> {{adress.adress_name}}</strong></div>
+			      </div>
+			    </a>
+			 
+			{% empty %}
+                         <div class="block block_white">Не найдено результатов</div>        
+			{%endfor%}  
+            
+	   {% endblock %}
+
+
+       {% block button_Home_des %}
+       <a href="{%url 'town' flag town.id%}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Home_des.png" %}" alt="">
+       </a>	   
+	   {% endblock %}
+	   
+       {% block button_Up_des %}
+       <a href="{%url 'adress_list' flag region.id town.id%}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Up_des.png" %}" alt="">
+       </a>	
+	   {% endblock %}
+
+	   {% block button_Add_des %}
+	    <a href="{%url 'adress_create' flag region.id town.id%}">
+	     <img class="button" src="{%static "pricemin/image/des/buttons/Add_des.png" %}" alt="">
+	    </a>
+	   {% endblock %}
+	   
+	   {% block button_Find_des %}
+	    <a href="{%url 'search_adress_form' flag region.id town.id%}">
+	     <img class="button" src="{%static "pricemin/image/des/buttons/Find_des.png" %}" alt="">
+	    </a>
+	   {% endblock %}

@@ -1,0 +1,73 @@
+﻿{% extends "pricemin/pro/base_pro.html" %}
+{%load staticfiles%}
+
+{%block content%}
+		
+ <div class="block block_blue">
+             {{town.town_name}}
+            </div>
+                {% for event in events %}                           
+                            <a href="{%url 'update_form_event' flag event.id town.id%}">
+                              <div class="block block_white before_prompt" 
+                                    title="Нажмите для редактирования информации"
+                                    href="{%url 'update_form_event' flag event.id town.id%}"
+                                    prompt="Нашли не точность, тогда скорее исправте её, что бы не вводить других в заблуждение!" 
+			                        prompt2=""
+			                        prompt3=""
+			                        prompt4=""
+			                        prompt5="">    
+                                <div class="text_center"><strong>{{event.prefix}}</strong></div>
+                                <div class="block_whitesmoke">{{event.eventComment}}</div>
+                                <div class="text_center text_italic">Срок: {{event.eventStart}} / {{event.eventStop}}</div>
+                                <div class="text_center"><strong>{{event.eventWhere}}</strong></div>
+                                <table>
+                                 <tr>
+                                  <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{event.user_id}}</td>  
+                                  <td align="center" valign="top" class="text_xsmall">{{event.eventDate|date:"d.m.y"}}</td>             
+                                 </tr> 
+                                </table>
+                              </div>
+                            </a>
+                        {% empty %}
+                          <div class="block block_white">Сегодня пока нет добавленных событий.</div>
+                        {%endfor%}			
+			
+			
+{%endblock%}
+
+{% block button_Question %}
+ <a href="/event_create/mob/{{town.id}}">
+  <div id="bottom-button-question">
+   <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_on.png" %}">
+   <p></p>
+  </div>
+ </a>
+{% endblock %}
+
+{% block button_1 %}
+ <a href="{%url 'town' flag town.id%}">
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Home.png" %}" alt="">
+  </div>
+ </a>
+{% endblock %}
+
+{% block button_2 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_3 %}
+ <a href="{%url 'event_create' flag town.id%}">
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Add.png" %}" alt="">
+  </div>
+ </a>
+{% endblock %}
+
+{% block button_4 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}

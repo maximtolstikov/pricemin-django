@@ -1,0 +1,57 @@
+﻿{% extends "pricemin/pro/base_pro.html" %}
+{%load staticfiles%}
+
+{%block content%}
+    <div align="center">
+		<p><h3>Добавте город</h3></p>
+		<form action="{%url 'addtown' flag region.id%}" method="POST">
+		{%csrf_token%}
+		
+	   	<p>{{form.user_id}}</p>
+		<p>{{form.region}}</p>
+		<label for="prefix">Префикс:</label>
+		<p>{{form.prefix}}</p>
+		<label for="town_name">Название города:</label>
+		<p>{{form.town_name}}</p>
+                {{errors}}
+                {% if error_exist %}
+                <ul class="errorlist"><li>{{error_exist}}</li></ul>
+                {% endif %}
+		<p><input id="id_submit" type="submit" value="Сохранить"/></p>		
+		</form> 		
+  </div>
+{%endblock%}
+
+{% block button_Question %}
+  <a href="/town_create/mob/{{region.id}}">
+    <div id="bottom-button-question">
+      <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_on.png" %}">
+    </div>
+  </a>
+{% endblock %}
+
+{% block button_1 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_2 %}
+  <a href="{%url 'town_list' flag region.id%}">
+    <div id="bottom-button">
+      <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}" alt="">
+    </div>
+  </a> 
+{% endblock %}
+
+{% block button_3 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_4 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}

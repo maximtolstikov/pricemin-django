@@ -1,0 +1,55 @@
+﻿{% extends "pricemin/des/base.html" %}
+{%load staticfiles%}
+   
+{% block aside%}
+ <div class="block block_white"> 
+  <span><strong>Подсказка:</strong><br>
+  <span>Незабудьте добавить выбранный город в закладки Вашего браузера!</span>
+ </div> 	  
+{% endblock %}
+	   	   
+{% block article %} 
+	    
+ <div class="block block_blue">
+  {{region}}
+ </div>
+        
+ {%for town in town_list%}
+  <a href="{%url 'town' flag town.id%}">
+   <div class="block block_white" title="Нажмите для перехода в требуемый город">
+    {{town.prefix}} {{town.town_name}}
+    <table>
+     <tr>
+      <td align="left" valign="top" width="100%" class="text_xsmall">Пользователь: {{town.user_id}}</td>  
+      <td align="center" valign="top" class="text_xsmall">{{town.town_date|date:"d.m.y"}}</td>             
+     </tr> 
+    </table>
+                                
+   </div>
+  </a>
+ {% empty %}
+  <div class="block block_white"><strong>Для начала добавте свой город</strong></div>
+ {%endfor%}
+{% endblock %}
+
+       {% block button_Home_des %}
+       <img class="button" src="{%static "pricemin/image/des/buttons/Off_des.png" %}" alt="">	   
+	   {% endblock %}
+	   
+	   {% block button_Up_des %}
+       <a href="{%url 'index_des' %}">
+        <img class="button" src="{%static "pricemin/image/des/buttons/Up_des.png" %}" alt="">
+       </a>	   
+	   {% endblock %}
+	   
+	   {% block button_Add_des %}
+	    <a href="{%url 'town_create' flag region.id%}">
+	     <img class="button" src="{%static "pricemin/image/des/buttons/Add_des.png" %}" alt="">
+	    </a>
+	   {% endblock %}
+	   
+       {% block button_Find_des %}
+       <a href="{%url 'search_town_form' flag region.id%}">
+	     <img class="button" src="{%static "pricemin/image/des/buttons/Find_des.png" %}" alt="">
+	    </a>
+	   {% endblock %}

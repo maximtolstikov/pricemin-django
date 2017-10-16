@@ -1,0 +1,42 @@
+﻿{%load staticfiles%}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>pricemin.ru</title>
+    <link rel="stylesheet" type="text/css" href="{%static "pricemin/css/pro_css.css"%}"> 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>  
+    <script type="text/javascript" src="{%static "pricemin/js/jquery.ui.datepicker-ru.js"%}"></script>
+    <script type="text/javascript" src="{%static "pricemin/js/script_pro.js"%}"></script>     
+  </head>
+ 
+  <body >  
+  <div id="prompt" class="after_prompt" ></div>
+    {%block content%} 
+    {%endblock%} 
+
+    <div id="height_60"></div>
+    
+    <div id="block-fixed">
+       {% block button_1 %}
+	   
+	   {% endblock %}
+	   {% block button_2 %}
+	   
+	   {% endblock %}
+       {% block button_3 %}
+	   
+	   {% endblock %}
+       {% block button_4 %}
+	   
+	   {% endblock %}
+       {% block button_Question %}
+       
+	   {% endblock %}
+    </div> 
+    </body>
+</html>
+

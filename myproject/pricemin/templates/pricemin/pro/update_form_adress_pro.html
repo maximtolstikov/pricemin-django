@@ -1,0 +1,60 @@
+﻿{% extends "pricemin/pro/base_pro.html" %}
+{%load staticfiles%}
+
+{%block content%}
+<div class="block block_blue text_x-large">
+         Информация о продукте
+        </div>
+           <div class="block block_white text_center ">
+        
+        <form action="{%url 'product_update_adress' flag region.id adress.id product.id town.id%}" method="POST">
+         {%csrf_token%}
+                        <p>{{form.user_id}}</p>
+                        <p>{{form.adress}}</p>
+                        <label for="prefix">Название:</label>
+                        <p>{{form.product_name}}</p>
+                        <label for="town_name">Вес/Кол-во (гр./мл./шт.):</label>
+                        <p>{{form.product_weight}}</p>
+                        <label for="town_name">Цена:</label>
+                        <p>{{form.product_price}}</p>
+                        <p><input id="id_submit" type="submit" size="50" value="Сохранить"></p>
+
+        </form>
+      </div>
+{%endblock%}
+
+{% block button_Question %}
+  <a href="/update_form_adress/mob/{{region.id}}/{{adress.id}}/{{product.id}}/{{town.id}}">
+    <div id="bottom-button-question">
+       <img class="button_prompt"  src="{%static "pricemin/image/mob/buttons_mob/Question_on.png" %}">
+    </div>
+  </a>
+{% endblock %}
+
+{% block button_1 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_2 %}
+  <a href="{%url 'products_adress' flag region.id adress.id town.id%}">
+    <div id="bottom-button">
+      <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Up.png" %}">
+    </div>
+  </a> 
+{% endblock %}
+
+{% block button_3 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}
+
+{% block button_4 %}
+  <div id="bottom-button">
+    <img class="button" src="{%static "pricemin/image/mob/buttons_mob/Off.png" %}" alt="">
+  </div>
+{% endblock %}﻿
+﻿
+﻿
